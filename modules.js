@@ -8,4 +8,4 @@ function requireInt(name) {
 module.exports = {
     player: requireInt("player"),
     filemanager: requireInt("filemanager")
-}
+};

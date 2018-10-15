@@ -1,7 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     modules = require("../modules"),
-    player = modules.player;
+    player = modules.player,
     fm = modules.filemanager;
 
 
@@ -16,7 +16,11 @@ router.post('/setVolume/:id/:value', function(req, res) {
 });
 
 router.post('/start/:id', function(req, res, next) {
-    let id = player.start(req.params.id);
+    let config = {
+        path: "/home/turi/Musik/ambient_travel_lizenzfrei_privat_evermusic.mp3",
+        volume: 65
+    };
+    let id = player.start(req.params.id, req.body );
     res.status(200).send(id.toString()).end();
 });
 

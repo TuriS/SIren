@@ -17,7 +17,7 @@ module.exports = {
         let player = players[id];
         player.volume(parseInt(value));
     },
-    start: function(id) {
+    start: function(id, config) {
         id = id ? id : Object.keys(players).length;
         if(players[id]) {
             console.log(players[id]);
@@ -30,9 +30,10 @@ module.exports = {
         // player.on('status', console.log);
         player.setOptions({
             cache: 128,
-            cacheMin: 1
+            cacheMin: 1,
+            volume: config.volume
         });
-        player.openFile("/home/turi/Musik/A Thousand Years - Christina Perri.mp3");
+        player.openFile(config.path);
         return id;
     },
     stop: function(id) {
@@ -47,5 +48,4 @@ module.exports = {
         });
     },
     players: players
-
 };

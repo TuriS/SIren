@@ -2,14 +2,16 @@
     {{!--
     <h1>{{title}}</h1>
     <p>Welcome to {{title}}</p> --}}
-    <div class="container">
+    <div class="container player" id="a">
         <div class="row">
             {{!--
             <p class="card-text"></p> --}}
-            <div class="col-1"><button class="btn btn-primary" onclick="start(0)"><span class="glyphicon glyphicon-play"></span></button></div>
-            <div class="col-1"><button class="btn btn-primary" onclick="stop(0)"><span class="glyphicon glyphicon-stop"></span></button></div>
-            <div class="col-10"><input class="custom-range" id="vol" name="vol" type="range" min="0" max="100" step="1"
-                    value="66" oninput="vol(0, this.value)"></div>
+            <div class="col-1"><button class="btn btn-primary" onclick="start('a')"><span class="glyphicon glyphicon-play"></span></button></div>
+            <div class="col-1"><button class="btn btn-primary" onclick="stop('a')"><span class="glyphicon glyphicon-stop"></span></button></div>
+            <div class="col-10 ranges">
+                <input class="custom-range" id="vol" name="vol" type="range" min="0" max="100" step="1"
+                    value="66" oninput="vol('a', this.value)">
+            </div>
         </div>
     </div>
 </div>

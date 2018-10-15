@@ -1,3 +1,13 @@
 body {
     padding-top: 5vh;
 }
+
+.player .btn{
+    width: 75px;
+    height: 75px;
+}
+.player .ranges{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
