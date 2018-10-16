@@ -1,8 +1,8 @@
 const express = require('express'),
     router = express.Router(),
     modules = require("../modules"),
-    player = modules.player,
-    fm = modules.filemanager;
+    player = modules.player(),
+    fm = modules.filemanager();
 
 
 router.post('/saveFile', function(req, res, next) {

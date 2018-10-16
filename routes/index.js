@@ -1,7 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     modules = require('../modules'),
-    fm = modules.filemanager,
+    fm = modules.filemanager(),
     path = require('path'),
     fs = require('fs'),
     config = require('../config.json');
