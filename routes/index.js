@@ -1,3 +1,4 @@
+/* globals MODULES:true*/
 const express = require('express'),
     router = express.Router(),
     fm = MODULES.filemanager,

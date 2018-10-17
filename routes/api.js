@@ -1,3 +1,4 @@
+/* globals MODULES: true */
 const express = require('express'),
     router = express.Router(),
     fm = MODULES.filemanager,
@@ -18,17 +19,25 @@ router.post('/setVolume/:id/:value', function(req, res) {
 });
 
 router.post('/start/:id', function(req, res, next) {
-    console.log(req.body)
-    let config = soundfiles[req.params.id];
-    config.volume = parseInt(req.body.volume);
-    let id = player.start(req.params.id, config );
-    res.status(200).send(id.toString()).end();
+    try {
+        console.log(req.body);
+        let config = player.getPlayers()[req.params.id];
+        config.volume = parseInt(req.body.volume);
+        let id = player.start(req.params.id, config );
+        res.status(200).send(id.toString()).end();
+    } catch (e) {
+        console.log(e);
+    }
 });
 
 
 router.post('/stop/:id', function(req, res, next) {
     player.stop(req.params.id);
     res.status(200).send("OK");
+});
+
+router.get('/players', function(req,res,next) {
+    res.json(player.getPlayers());
 });
 
 module.exports = router;

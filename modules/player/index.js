@@ -27,10 +27,10 @@ module.exports = class Player {
     }
 
     start(id, config) {
-        id = id ? id : Object.keys(players).length;
-        if(players[id]) {
+        id = id ? id : Object.keys(this.players).length;
+        if(this.players[id]) {
             console.log(this.players[id]);
-            players[id].play();
+            this.players[id].play();
             return id;
         }
         let player = new MPlayer();
@@ -56,8 +56,8 @@ module.exports = class Player {
 
     stopAll() {
         Object.keys(this.players).forEach(player => {
-            players[player].stop();
-            delete players[player];
+            this.players[player].stop();
+            delete this.players[player];
         });
     }
     getPlayers() {
@@ -74,18 +74,18 @@ module.exports = class Player {
             id = (Date.now() + 1).toString(16);
         }
         switch(audio.type.toLowerCase()) {
-            case("music"):
-                audio.player = new AudioPlayer();
-                this.players[id] = audio;
-                break;
-            case("playlist"):
-                audio.player = new Playlist();
-                this.players[id] = audio;
-                break;
-            case("sound"):
-                audio.player = new Sound();
-                this.players[id] = audio;
-                break;
+        case("music"):
+            audio.player = new AudioPlayer();
+            this.players[id] = audio;
+            break;
+        case("playlist"):
+            audio.player = new Playlist();
+            this.players[id] = audio;
+            break;
+        case("sound"):
+            audio.player = new Sound();
+            this.players[id] = audio;
+            break;
         }
     }
 };
