@@ -31,4 +31,4 @@ module.exports = {
         let data = fs.readFileSync(file, {encoding: 'utf8'});
         return JSON.parse(data);
     }
-}
+};

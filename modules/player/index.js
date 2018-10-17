@@ -1,3 +1,4 @@
+/* globals ROOTDIR:true */
 /**
  * Main file of Player
  */
@@ -11,7 +12,6 @@ module.exports = class Player {
     constructor(array) {
         this.players = {};
         this.setPlayers(array);
-        console.log(this.players);
     }
     pause(id) {
         if(!id || !this.players[id]) return;
@@ -22,35 +22,20 @@ module.exports = class Player {
     setVolume(id, value) {
         if(!id || ! value) return;
         if(!this.players[id]) return;
-        let player = this.players[id];
+        
+        let player = this.players[id].player;
         player.volume(parseInt(value));
     }
 
-    start(id, config) {
-        id = id ? id : Object.keys(this.players).length;
+    start(id, volume) {
         if(this.players[id]) {
-            console.log(this.players[id]);
-            this.players[id].play();
+            this.players[id].player.play(volume);
             return id;
-        }
-        let player = new MPlayer();
-        this.players[id]= player;
-        // player.on('status', console.log);
-        player.setOptions({
-            cache: 128,
-            cacheMin: 1,
-            volume: config.volume
-        });
-        if(config.type == "playlist") {
-            player.openPlaylist(config.path);
-            return id;
-        }
-        player.openFile(config.path);
-        return id;
+        } else return;
     }
 
     stop(id) {
-        let player = this.players[id];
+        let player = this.players[id].player;
         player.stop();
     }
 
@@ -69,21 +54,29 @@ module.exports = class Player {
         });
     }
     addPlayer(audio) {
-        let id =  Date.now().toString(16);
+        let id = audio.id ? audio.id : Date.now().toString(16);
         while(this.players[id]) {
             id = (Date.now() + 1).toString(16);
         }
+        let config = {
+            cache: 128,
+            cacheMin: 0.5,
+            volume: audio.volume
+        };
+        if(ROOTDIR && !audio.path.toString().startsWith("/")){
+            audio.path = ROOTDIR + "/" + audio.path;
+        }
         switch(audio.type.toLowerCase()) {
         case("music"):
-            audio.player = new AudioPlayer();
+            audio.player = new AudioPlayer(audio.path, config);
             this.players[id] = audio;
             break;
         case("playlist"):
-            audio.player = new Playlist();
+            audio.player = new Playlist(audio.path,config);
             this.players[id] = audio;
             break;
         case("sound"):
-            audio.player = new Sound();
+            audio.player = new Sound(audio.path);
             this.players[id] = audio;
             break;
         }

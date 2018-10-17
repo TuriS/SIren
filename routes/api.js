@@ -19,15 +19,8 @@ router.post('/setVolume/:id/:value', function(req, res) {
 });
 
 router.post('/start/:id', function(req, res, next) {
-    try {
-        console.log(req.body);
-        let config = player.getPlayers()[req.params.id];
-        config.volume = parseInt(req.body.volume);
-        let id = player.start(req.params.id, config );
-        res.status(200).send(id.toString()).end();
-    } catch (e) {
-        console.log(e);
-    }
+    let id = player.start(req.params.id, req.body.volume ? parseInt(req.body.volume): null );
+    res.status(200).send(id ? id.toString(): null).end();
 });
 
 

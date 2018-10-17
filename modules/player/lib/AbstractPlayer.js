@@ -2,19 +2,27 @@ const MPlayer = require('mplayer');
 
 module.exports = class AbstractPlayer {
     constructor(path, config) {
-        let player = new MPlayer();
-
-        this.engine = player;
-        this.file = path;
+        this.engine = new MPlayer();
+        this.path = path;
         this.config = config;
+        this.init();
     }
-    play() {
-
+    init() {
+    }
+    play(vol) {
+        this.engine.openFile(this.getPath());
+        this.volume(vol);
     }
     pause() {
 
     }
     stop() {
-
+        this.engine.stop();
     }
-}
+    volume(val) {
+        this.engine.volume(val);
+    }
+    getPath() {
+        return this.path;
+    }
+};

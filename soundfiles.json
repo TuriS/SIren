@@ -1,13 +1,17 @@
 [
     {
+        "id": "16682a22e29",
         "title": "A Thousand Years",
-        "path": "/home/turi/Musik/A Thousand Years - Christina Perri.mp3",
+        "path": "example/ambient_travel_lizenzfrei_privat_evermusic.mp3",
         "type": "music",
         "volume":   25
     },
-    {
+    {   
+        "id": "16682a22e30",
         "title": "Playlist",
-        "path": "/home/turi/workspace/Siren/playlists/playlist01",
+        "path": [
+            "/home/turi/Musik/ambient_travel_lizenzfrei_privat_evermusic.mp3"
+        ],
         "type": "playlist",
         "volume":   25
     }

@@ -13,21 +13,19 @@
             </div>
         </div>
     </div> --}}
-    {{#each soundfiles}}
-    <div class="container audio" id="soundfile_{{@key}}" index={{@key}}>
+    <div class="container audio" id="soundfile_[[key]]" ng-repeat="(key, value) in players">
         <div class="row title">
-            <div class="col"><h1>{{this.title}}</h1></div>
+            <div class="col"><h1>[[value.title]]</h1></div>
         </div>
         <div class="row">
-            <div class="btn btn-secondary playbutton" onclick="start_stop(this, {{@key}})">
+            <div class="btn btn-secondary playbutton" ng-click="start_stop([[key]])">
                 <span class="glyphicon glyphicon-play"></span>
                 <span class="glyphicon glyphicon-stop"></span>
             </div>
             <div class="col-10 ranges">
                 <input class="custom-range" id="vol" name="vol" type="range" min="0" max="100" step="1"
-                    value={{this.volume}} oninput="vol({{@key}}, this.value)">
+                    ng-value="value.volume" ng-model="range" ng-change="vol(key, range)">
             </div>
         </div>
     </div>
-    {{/each}}
 </div>
