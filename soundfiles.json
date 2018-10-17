@@ -1,0 +1,14 @@
+[
+    {
+        "title": "A Thousand Years",
+        "path": "/home/turi/Musik/A Thousand Years - Christina Perri.mp3",
+        "type": "music",
+        "volume":   25
+    },
+    {
+        "title": "Playlist",
+        "path": "/home/turi/workspace/Siren/playlists/playlist01",
+        "type": "playlist",
+        "volume":   25
+    }
+]

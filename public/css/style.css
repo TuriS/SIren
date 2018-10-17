@@ -2,12 +2,49 @@ body {
     padding-top: 5vh;
 }
 
-.player .btn{
-    width: 75px;
-    height: 75px;
+.playbutton {
+    position: relative;
+    border-radius: 50%;
+    height: 100px;
+    font-size: 50px;
+    width: 100px !important;
 }
-.player .ranges{
+
+.ranges {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.playbutton .glyphicon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.playbutton.playing .glyphicon-play {
+    visibility: hidden;
+}
+.playbutton:not(.playing) .glyphicon-stop {
+    visibility: hidden;
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: var(--blue);
+    margin-top: -20px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
 }

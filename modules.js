@@ -3,14 +3,14 @@ const path = require('path'),
     modules = fs.readdirSync(path.join(__dirname, 'modules'));
 
 function requireInt(name) {
-    let modPath = path.join(__dirname, 'modules', name, 'index');
-    return require(modPath);
+    let modPath = path.join(__dirname, 'modules', name, 'index.js');
+    if(fs.existsSync(modPath)) {
+        return require(modPath);
+    }
 }
 
 let requires = modules.reduce((acc, cur) => {
-    acc[cur] = function() {
-        requireInt(cur)
-    };
+    acc[cur] = requireInt(cur);
     return acc;
 },{});
 

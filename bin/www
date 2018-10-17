@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+global.MODULES = require("../modules");
+
 /**
  * Module dependencies.
  */

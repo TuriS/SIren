@@ -1,9 +1,11 @@
 const express = require('express'),
     router = express.Router(),
-    modules = require("../modules"),
-    player = modules.player(),
-    fm = modules.filemanager();
+    fm = MODULES.filemanager,
+    player = new MODULES.player(require("../soundfiles.json"));
 
+router.get('/soundfiles', function(req,res,next) {
+    res.json(player.getPlayers());
+});
 
 router.post('/saveFile', function(req, res, next) {
     fm.saveFile(req.body.name, req.body.data);
@@ -16,11 +18,10 @@ router.post('/setVolume/:id/:value', function(req, res) {
 });
 
 router.post('/start/:id', function(req, res, next) {
-    let config = {
-        path: "/home/turi/Musik/ambient_travel_lizenzfrei_privat_evermusic.mp3",
-        volume: 65
-    };
-    let id = player.start(req.params.id, req.body );
+    console.log(req.body)
+    let config = soundfiles[req.params.id];
+    config.volume = parseInt(req.body.volume);
+    let id = player.start(req.params.id, config );
     res.status(200).send(id.toString()).end();
 });
 

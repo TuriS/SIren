@@ -2,10 +2,9 @@
     {{!--
     <h1>{{title}}</h1>
     <p>Welcome to {{title}}</p> --}}
-    <div class="container player" id="a">
+    {{!-- <div class="container player" id="a">
         <div class="row">
-            {{!--
-            <p class="card-text"></p> --}}
+            <p class="card-text"></p>
             <div class="col-1"><button class="btn btn-primary" onclick="start('a')"><span class="glyphicon glyphicon-play"></span></button></div>
             <div class="col-1"><button class="btn btn-primary" onclick="stop('a')"><span class="glyphicon glyphicon-stop"></span></button></div>
             <div class="col-10 ranges">
@@ -13,5 +12,22 @@
                     value="66" oninput="vol('a', this.value)">
             </div>
         </div>
+    </div> --}}
+    {{#each soundfiles}}
+    <div class="container audio" id="soundfile_{{@key}}" index={{@key}}>
+        <div class="row title">
+            <div class="col"><h1>{{this.title}}</h1></div>
+        </div>
+        <div class="row">
+            <div class="btn btn-secondary playbutton" onclick="start_stop(this, {{@key}})">
+                <span class="glyphicon glyphicon-play"></span>
+                <span class="glyphicon glyphicon-stop"></span>
+            </div>
+            <div class="col-10 ranges">
+                <input class="custom-range" id="vol" name="vol" type="range" min="0" max="100" step="1"
+                    value={{this.volume}} oninput="vol({{@key}}, this.value)">
+            </div>
+        </div>
     </div>
+    {{/each}}
 </div>
