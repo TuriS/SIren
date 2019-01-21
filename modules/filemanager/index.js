@@ -5,8 +5,12 @@ const fs = require('fs'),
 function dirTree(filename) {
     let stats = fs.lstatSync(filename),
         info = {
-            path: filename,
-            name: path.basename(filename)
+            text: path.basename(filename),
+            id: stats.ino,
+            name: path.basename(filename),
+            li_attr: {
+                path: filename
+            }
         };
     if (stats.isDirectory()) {
         info.type = "folder";
@@ -16,7 +20,6 @@ function dirTree(filename) {
     } else {
         info.type = "file";
     }
-
     return info;
 }
 

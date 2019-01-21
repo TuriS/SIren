@@ -28,6 +28,7 @@ app.use('/glyphicons', express.static(path.join(__dirname, 'node_modules', 'glyp
 app.use('/jquery', express.static(path.join(__dirname, 'node_modules', 'jquery/dist')));
 app.use('/angular', express.static(path.join(__dirname, 'node_modules', 'angular')));
 app.use('/angular-route', express.static(path.join(__dirname, 'node_modules', 'angular-route')));
+app.use('/jstree', express.static(path.join(__dirname, 'node_modules', 'jstree', 'dist')));
 
 app.use('/', indexRouter);
 app.use('/player', playerRouter);

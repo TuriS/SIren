@@ -1,4 +1,5 @@
-<div class="container-fluid">
+<div id="savebutton" ng-click="save()"><span class="glyphicon glyphicon-save"></span></div>
+<div class="container-fluid" dragstart="console.log(event);">
     {{!--
     <h1>{{title}}</h1>
     <p>Welcome to {{title}}</p> --}}
@@ -13,7 +14,7 @@
             </div>
         </div>
     </div> --}}
-    <div class="container audio" id="soundfile_[[key]]" ng-repeat="(key, value) in players">
+    <div class="container audio" id="soundfile_[[key]]" data="[[key]]" ng-repeat="(key, value) in players">
         <div class="row title">
             <div class="col"><h1>[[value.title]]</h1></div>
         </div>
@@ -29,3 +30,5 @@
         </div>
     </div>
 </div>
+
+{{!-- <div id="filetree"></div> --}}

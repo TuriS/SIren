@@ -1,5 +1,5 @@
 module.exports = class AudioPlayer extends require('./AbstractPlayer') {
-    init() {
-        this.engine.setOptions(this.config);
+    constructor(path, filedata, config) {
+        super(path, filedata, config);
     }
 };

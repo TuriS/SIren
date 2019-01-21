@@ -19,7 +19,9 @@
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
     "jquery": "^3.3.1",
+    "jstree": "^3.3.6",
     "morgan": "~1.9.0",
-    "mplayer": "^2.1.0"
+    "mplayer": "^2.1.0",
+    "musicmetadata": "^2.0.5"
   }
 }

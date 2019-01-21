@@ -1,18 +1,20 @@
 [
-    {
-        "id": "16682a22e29",
-        "title": "A Thousand Years",
-        "path": "example/ambient_travel_lizenzfrei_privat_evermusic.mp3",
-        "type": "music",
-        "volume":   25
-    },
-    {   
-        "id": "16682a22e30",
-        "title": "Playlist",
-        "path": [
-            "/home/turi/Musik/ambient_travel_lizenzfrei_privat_evermusic.mp3"
-        ],
-        "type": "playlist",
-        "volume":   25
-    }
+  {
+    "id": "16682a22e29",
+    "title": "A Thousand Years",
+    "path": "/home/turi/workspace/Siren/example/ambient_travel_lizenzfrei_privat_evermusic.mp3",
+    "type": "music",
+    "volume": "37"
+  },
+  {
+    "id": "16682a22e30",
+    "title": "Playlist",
+    "path": [
+      "/home/turi/Musik/HintergrundMusik/Game Soundtracks/The Elder Srolls III_ Morrowind Soundtrack/The Elder Srolls III_ Morrowind Soundtrack - 16. Darkened Depths.mp3",
+      "/home/turi/Musik/HintergrundMusik/Audiomachine/2005 - The platinum series I/Drama - serious/05 Fallen soldiers (no drums) (build @ .50).mp3",
+      "/home/turi/Musik/HintergrundMusik/Audiomachine/2005 - The platinum series I/Drama - serious/07 Constantine (no choir).mp3"
+    ],
+    "type": "playlist",
+    "volume": "15"
+  }
 ]

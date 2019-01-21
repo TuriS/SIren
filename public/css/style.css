@@ -52,3 +52,15 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 .audio {
     margin-bottom: 5em;
 }
+
+#filetree {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 75vw;
+    height: 100vh;
+    background: rgba(255,255,255,0.7);
+    border: solid grey thin;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
